@@ -117,7 +117,7 @@ export default function Home() {
 
   const labelStyle = {
     fontWeight: '600',
-    color: '#5a3e2b',
+    color: '#c2185b',
     fontSize: '14px',
     display: 'block',
     marginBottom: '4px',
@@ -126,31 +126,32 @@ export default function Home() {
   return (
     <main style={{ maxWidth: '700px', margin: '0 auto', padding: '40px 20px' }}>
       <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-        <h1 style={{ fontSize: '48px', margin: '0 0 8px 0', color: '#5a3e2b', fontWeight: '700', textShadow: '2px 2px 4px rgba(0,0,0,0.1)' }}>
-          🥐 FluffyFlavours
+        <h1 style={{ fontSize: '48px', margin: '0 0 8px 0', color: '#c2185b', fontWeight: '700', textShadow: '2px 2px 4px rgba(0,0,0,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px' }}>
+          <img src="/logo.jpeg" alt="FluffyFlavours" style={{ width: '80px', height: '80px', borderRadius: '50%', objectFit: 'cover' }} />
+          FluffyFlavours
         </h1>
-        <p style={{ color: '#8b6f47', fontSize: '16px', margin: 0 }}>Track your daily orders with ease</p>
+        <p style={{ color: '#880e4f', fontSize: '16px', margin: 0 }}>Track your daily orders with ease</p>
       </div>
 
       <div style={{ display: 'flex', gap: '8px', marginBottom: '24px' }}>
         <button 
           type="button"
           onClick={() => setActiveTab('orders')}
-          style={{ flex: 1, padding: '12px', background: activeTab === 'orders' ? 'linear-gradient(135deg, #ff8a56 0%, #ff6b6b 100%)' : 'white', color: activeTab === 'orders' ? 'white' : '#8b6f47', border: '2px solid #ffd9a6', borderRadius: '8px', cursor: 'pointer', fontSize: '15px', fontWeight: '600' }}
+          style={{ flex: 1, padding: '12px', background: activeTab === 'orders' ? 'linear-gradient(135deg, #f48fb1 0%, #ec407a 100%)' : 'white', color: activeTab === 'orders' ? 'white' : '#c2185b', border: '2px solid #f8bbd0', borderRadius: '8px', cursor: 'pointer', fontSize: '15px', fontWeight: '600' }}
         >
           Orders
         </button>
         <button 
           type="button"
           onClick={() => setActiveTab('inventory')}
-          style={{ flex: 1, padding: '12px', background: activeTab === 'inventory' ? 'linear-gradient(135deg, #ff8a56 0%, #ff6b6b 100%)' : 'white', color: activeTab === 'inventory' ? 'white' : '#8b6f47', border: '2px solid #ffd9a6', borderRadius: '8px', cursor: 'pointer', fontSize: '15px', fontWeight: '600' }}
+          style={{ flex: 1, padding: '12px', background: activeTab === 'inventory' ? 'linear-gradient(135deg, #f48fb1 0%, #ec407a 100%)' : 'white', color: activeTab === 'inventory' ? 'white' : '#c2185b', border: '2px solid #f8bbd0', borderRadius: '8px', cursor: 'pointer', fontSize: '15px', fontWeight: '600' }}
         >
           Inventory
         </button>
         <button 
           type="button"
           onClick={() => setActiveTab('stats')}
-          style={{ flex: 1, padding: '12px', background: activeTab === 'stats' ? 'linear-gradient(135deg, #ff8a56 0%, #ff6b6b 100%)' : 'white', color: activeTab === 'stats' ? 'white' : '#8b6f47', border: '2px solid #ffd9a6', borderRadius: '8px', cursor: 'pointer', fontSize: '15px', fontWeight: '600' }}
+          style={{ flex: 1, padding: '12px', background: activeTab === 'stats' ? 'linear-gradient(135deg, #f48fb1 0%, #ec407a 100%)' : 'white', color: activeTab === 'stats' ? 'white' : '#c2185b', border: '2px solid #f8bbd0', borderRadius: '8px', cursor: 'pointer', fontSize: '15px', fontWeight: '600' }}
         >
           Stats
         </button>
@@ -181,9 +182,9 @@ export default function Home() {
           />
         </div>
 
-        <h3 style={{ color: '#5a3e2b', marginBottom: '16px', fontSize: '20px' }}>Order Items</h3>
+        <h3 style={{ color: '#c2185b', marginBottom: '16px', fontSize: '20px' }}>Order Items</h3>
         {items.map((item, i) => (
-          <div key={i} style={{ marginBottom: '20px', padding: '20px', background: 'linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%)', borderRadius: '12px', border: '2px solid #ffd9a6' }}>
+          <div key={i} style={{ marginBottom: '20px', padding: '20px', background: 'linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%)', borderRadius: '12px', border: '2px solid #f48fb1' }}>
             <div style={{ marginBottom: '16px' }}>
               <label style={labelStyle}>Product</label>
               <select
@@ -248,7 +249,7 @@ export default function Home() {
                 />
               </div>
             </div>
-            <div style={{ color: '#5a3e2b', fontSize: '14px', fontWeight: '600' }}>
+            <div style={{ color: '#c2185b', fontSize: '14px', fontWeight: '600' }}>
               Total: ₹{((item.sellingPrice * item.quantity) || 0).toFixed(2)} | Profit: ₹{(((item.sellingPrice - item.costPrice) * item.quantity) || 0).toFixed(2)}
             </div>
             {items.length > 1 && (
@@ -259,12 +260,12 @@ export default function Home() {
           </div>
         ))}
 
-        <button type="button" onClick={addItem} style={{ marginBottom: '24px', padding: '12px 24px', background: 'white', color: '#8b6f47', border: '2px dashed #d4a574', borderRadius: '8px', cursor: 'pointer', fontSize: '15px', fontWeight: '600', width: '100%' }}>
+        <button type="button" onClick={addItem} style={{ marginBottom: '24px', padding: '12px 24px', background: 'white', color: '#c2185b', border: '2px dashed #f48fb1', borderRadius: '8px', cursor: 'pointer', fontSize: '15px', fontWeight: '600', width: '100%' }}>
           + Add Another Item
         </button>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-          <button type="submit" style={{ flex: 1, padding: '14px 28px', background: 'linear-gradient(135deg, #ff8a56 0%, #ff6b6b 100%)', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontSize: '16px', fontWeight: '700', boxShadow: '0 4px 12px rgba(255,107,107,0.3)' }}>
+          <button type="submit" style={{ flex: 1, padding: '14px 28px', background: 'linear-gradient(135deg, #f48fb1 0%, #ec407a 100%)', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontSize: '16px', fontWeight: '700', boxShadow: '0 4px 12px rgba(236,64,122,0.3)' }}>
             Save to Sheet
           </button>
           {status && <span style={{ color: status.includes('Error') ? '#ff6b6b' : '#51cf66', fontWeight: '600', fontSize: '15px' }}>{status}</span>}
@@ -272,7 +273,7 @@ export default function Home() {
       </form>
       ) : activeTab === 'inventory' ? (
       <div style={{ background: 'white', padding: '32px', borderRadius: '16px', boxShadow: '0 8px 32px rgba(0,0,0,0.12)' }}>
-        <h3 style={{ color: '#5a3e2b', marginBottom: '24px', fontSize: '20px' }}>Add New Product</h3>
+        <h3 style={{ color: '#c2185b', marginBottom: '24px', fontSize: '20px' }}>Add New Product</h3>
         <form onSubmit={saveNewProduct}>
           <div style={{ marginBottom: '16px' }}>
             <label style={labelStyle}>Product Name</label>
@@ -311,61 +312,61 @@ export default function Home() {
               />
             </div>
           </div>
-          <button type="submit" style={{ padding: '14px 28px', background: 'linear-gradient(135deg, #ff8a56 0%, #ff6b6b 100%)', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontSize: '16px', fontWeight: '700', boxShadow: '0 4px 12px rgba(255,107,107,0.3)', width: '100%' }}>
+          <button type="submit" style={{ padding: '14px 28px', background: 'linear-gradient(135deg, #f48fb1 0%, #ec407a 100%)', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontSize: '16px', fontWeight: '700', boxShadow: '0 4px 12px rgba(236,64,122,0.3)', width: '100%' }}>
             Add to Inventory
           </button>
         </form>
         
-        <h3 style={{ color: '#5a3e2b', marginTop: '40px', marginBottom: '16px', fontSize: '20px' }}>Current Inventory</h3>
+        <h3 style={{ color: '#c2185b', marginTop: '40px', marginBottom: '16px', fontSize: '20px' }}>Current Inventory</h3>
         <div style={{ maxHeight: '400px', overflowY: 'auto' }}>
           {inventory.map((item, i) => (
-            <div key={i} style={{ padding: '16px', marginBottom: '12px', background: 'linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%)', borderRadius: '8px', border: '2px solid #ffd9a6' }}>
-              <div style={{ fontWeight: '600', color: '#5a3e2b', marginBottom: '4px' }}>{item.product}</div>
-              <div style={{ fontSize: '14px', color: '#8b6f47' }}>Cost: ₹{item.costPrice} | Selling: ₹{item.sellingPrice}</div>
+            <div key={i} style={{ padding: '16px', marginBottom: '12px', background: 'linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%)', borderRadius: '8px', border: '2px solid #f48fb1' }}>
+              <div style={{ fontWeight: '600', color: '#c2185b', marginBottom: '4px' }}>{item.product}</div>
+              <div style={{ fontSize: '14px', color: '#880e4f' }}>Cost: ₹{item.costPrice} | Selling: ₹{item.sellingPrice}</div>
             </div>
           ))}
         </div>
       </div>
       ) : activeTab === 'stats' ? (
       <div style={{ background: 'white', padding: '32px', borderRadius: '16px', boxShadow: '0 8px 32px rgba(0,0,0,0.12)' }}>
-        <h3 style={{ color: '#5a3e2b', marginBottom: '24px', fontSize: '24px', textAlign: 'center' }}>📊 Business Insights</h3>
+        <h3 style={{ color: '#c2185b', marginBottom: '24px', fontSize: '24px', textAlign: 'center' }}>📊 Business Insights</h3>
         
         {stats ? (
           <div style={{ display: 'grid', gap: '20px' }}>
-            <div style={{ padding: '24px', background: 'linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%)', borderRadius: '12px', border: '2px solid #ffd9a6' }}>
-              <div style={{ fontSize: '14px', color: '#8b6f47', marginBottom: '8px', fontWeight: '600' }}>🏆 MOST SOLD ITEM</div>
+            <div style={{ padding: '24px', background: 'linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%)', borderRadius: '12px', border: '2px solid #f48fb1' }}>
+              <div style={{ fontSize: '14px', color: '#880e4f', marginBottom: '8px', fontWeight: '600' }}>🏆 MOST SOLD ITEM</div>
               {stats.mostSold ? (
                 <>
-                  <div style={{ fontSize: '24px', fontWeight: '700', color: '#5a3e2b', marginBottom: '4px' }}>{stats.mostSold.product}</div>
-                  <div style={{ fontSize: '16px', color: '#8b6f47' }}>{stats.mostSold.quantity} units sold</div>
+                  <div style={{ fontSize: '24px', fontWeight: '700', color: '#c2185b', marginBottom: '4px' }}>{stats.mostSold.product}</div>
+                  <div style={{ fontSize: '16px', color: '#880e4f' }}>{stats.mostSold.quantity} units sold</div>
                 </>
-              ) : <div style={{ color: '#8b6f47' }}>No data yet</div>}
+              ) : <div style={{ color: '#880e4f' }}>No data yet</div>}
             </div>
 
-            <div style={{ padding: '24px', background: 'linear-gradient(135deg, #d4f4dd 0%, #b8e6c3 100%)', borderRadius: '12px', border: '2px solid #a3d9b1' }}>
-              <div style={{ fontSize: '14px', color: '#2d6a3e', marginBottom: '8px', fontWeight: '600' }}>💰 MOST PROFITABLE ITEM</div>
+            <div style={{ padding: '24px', background: 'linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%)', borderRadius: '12px', border: '2px solid #ce93d8' }}>
+              <div style={{ fontSize: '14px', color: '#6a1b9a', marginBottom: '8px', fontWeight: '600' }}>💰 MOST PROFITABLE ITEM</div>
               {stats.mostProfitable ? (
                 <>
-                  <div style={{ fontSize: '24px', fontWeight: '700', color: '#1e4d2b', marginBottom: '4px' }}>{stats.mostProfitable.product}</div>
-                  <div style={{ fontSize: '16px', color: '#2d6a3e' }}>₹{stats.mostProfitable.profit.toFixed(2)} profit</div>
+                  <div style={{ fontSize: '24px', fontWeight: '700', color: '#8e24aa', marginBottom: '4px' }}>{stats.mostProfitable.product}</div>
+                  <div style={{ fontSize: '16px', color: '#6a1b9a' }}>₹{stats.mostProfitable.profit.toFixed(2)} profit</div>
                 </>
-              ) : <div style={{ color: '#2d6a3e' }}>No data yet</div>}
+              ) : <div style={{ color: '#6a1b9a' }}>No data yet</div>}
             </div>
 
-            <div style={{ padding: '24px', background: 'linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%)', borderRadius: '12px', border: '2px solid #90caf9' }}>
-              <div style={{ fontSize: '14px', color: '#1565c0', marginBottom: '12px', fontWeight: '600' }}>👥 TOP 3 CUSTOMERS</div>
+            <div style={{ padding: '24px', background: 'linear-gradient(135deg, #fff0f5 0%, #ffe4e1 100%)', borderRadius: '12px', border: '2px solid #ffb6c1' }}>
+              <div style={{ fontSize: '14px', color: '#c2185b', marginBottom: '12px', fontWeight: '600' }}>👥 TOP 3 CUSTOMERS</div>
               {stats.topCustomers && stats.topCustomers.length > 0 ? (
                 stats.topCustomers.map((customer, i) => (
-                  <div key={i} style={{ marginBottom: '12px', paddingBottom: '12px', borderBottom: i < stats.topCustomers.length - 1 ? '1px solid rgba(21,101,192,0.2)' : 'none' }}>
-                    <div style={{ fontSize: '18px', fontWeight: '600', color: '#0d47a1' }}>{i + 1}. {customer.name}</div>
-                    <div style={{ fontSize: '14px', color: '#1565c0' }}>₹{customer.total.toFixed(2)} spent</div>
+                  <div key={i} style={{ marginBottom: '12px', paddingBottom: '12px', borderBottom: i < stats.topCustomers.length - 1 ? '1px solid rgba(194,24,91,0.2)' : 'none' }}>
+                    <div style={{ fontSize: '18px', fontWeight: '600', color: '#c2185b' }}>{i + 1}. {customer.name}</div>
+                    <div style={{ fontSize: '14px', color: '#880e4f' }}>₹{customer.total.toFixed(2)} spent</div>
                   </div>
                 ))
-              ) : <div style={{ color: '#1565c0' }}>No data yet</div>}
+              ) : <div style={{ color: '#c2185b' }}>No data yet</div>}
             </div>
           </div>
         ) : (
-          <div style={{ textAlign: 'center', color: '#8b6f47', padding: '40px' }}>Loading stats...</div>
+          <div style={{ textAlign: 'center', color: '#880e4f', padding: '40px' }}>Loading stats...</div>
         )}
       </div>
       ) : null}
