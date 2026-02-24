@@ -1,5 +1,7 @@
 import { google } from 'googleapis';
 
+export const dynamic = 'force-dynamic';
+
 export async function POST(request) {
   try {
     const { product, costPrice, sellingPrice } = await request.json();

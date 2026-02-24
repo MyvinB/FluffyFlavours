@@ -1,5 +1,7 @@
 import { google } from 'googleapis';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
     const auth = new google.auth.GoogleAuth({
