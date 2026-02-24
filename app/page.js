@@ -364,6 +364,18 @@ export default function Home() {
                 ))
               ) : <div style={{ color: '#c2185b' }}>No data yet</div>}
             </div>
+
+            <div style={{ padding: '24px', background: 'linear-gradient(135deg, #fff9e6 0%, #ffe8b3 100%)', borderRadius: '12px', border: '2px solid #ffd966' }}>
+              <div style={{ fontSize: '14px', color: '#b8860b', marginBottom: '12px', fontWeight: '600' }}>📅 MONTHLY PERFORMANCE</div>
+              {stats.monthlyPerformance && stats.monthlyPerformance.length > 0 ? (
+                stats.monthlyPerformance.map((month, i) => (
+                  <div key={i} style={{ marginBottom: '12px', paddingBottom: '12px', borderBottom: i < stats.monthlyPerformance.length - 1 ? '1px solid rgba(184,134,11,0.2)' : 'none' }}>
+                    <div style={{ fontSize: '16px', fontWeight: '600', color: '#b8860b', marginBottom: '4px' }}>{month.month}</div>
+                    <div style={{ fontSize: '14px', color: '#8b6914' }}>₹{month.sales.toFixed(2)} sales | ₹{month.profit.toFixed(2)} profit | {month.orders} orders</div>
+                  </div>
+                ))
+              ) : <div style={{ color: '#b8860b' }}>No data yet</div>}
+            </div>
           </div>
         ) : (
           <div style={{ textAlign: 'center', color: '#880e4f', padding: '40px' }}>Loading stats...</div>

@@ -53,10 +53,38 @@ export async function GET() {
       .slice(0, 3)
       .map(([name, total]) => ({ name, total }));
 
+    // Monthly performance (last 3 months)
+    const monthlyData = {};
+    rows.forEach(row => {
+      const date = row[0];  // Date is column 0
+      if (!date) return;
+      
+      const monthKey = date.substring(0, 7); // "2026-02"
+      const quantity = parseInt(row[3]) || 0;
+      const sellingPrice = parseFloat(row[4]) || 0;
+      const profit = parseFloat(row[6]) || 0;
+      
+      if (!monthlyData[monthKey]) {
+        monthlyData[monthKey] = { sales: 0, profit: 0, orders: 0 };
+      }
+      monthlyData[monthKey].sales += quantity * sellingPrice;
+      monthlyData[monthKey].profit += profit;
+      monthlyData[monthKey].orders += 1;
+    });
+    
+    const monthlyPerformance = Object.entries(monthlyData)
+      .sort((a, b) => b[0].localeCompare(a[0]))
+      .slice(0, 3)
+      .map(([month, data]) => ({
+        month: new Date(month + '-01').toLocaleDateString('en-US', { month: 'long', year: 'numeric' }),
+        ...data
+      }));
+
     return Response.json({ 
       mostSold: mostSold ? { product: mostSold[0], quantity: mostSold[1] } : null,
       mostProfitable: mostProfitable ? { product: mostProfitable[0], profit: mostProfitable[1] } : null,
-      topCustomers 
+      topCustomers,
+      monthlyPerformance
     });
   } catch (error) {
     console.error(error);
