@@ -124,41 +124,41 @@ export default function Home() {
   };
 
   return (
-    <main style={{ maxWidth: '700px', margin: '0 auto', padding: '40px 20px' }}>
-      <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-        <h1 style={{ fontSize: '48px', margin: '0 0 8px 0', color: '#c2185b', fontWeight: '700', textShadow: '2px 2px 4px rgba(0,0,0,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px' }}>
-          <img src="/logo.jpeg" alt="FluffyFlavours" style={{ width: '80px', height: '80px', borderRadius: '50%', objectFit: 'cover' }} />
+    <main style={{ maxWidth: '700px', margin: '0 auto', padding: '20px' }}>
+      <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+        <h1 style={{ fontSize: 'clamp(32px, 8vw, 48px)', margin: '0 0 8px 0', color: '#c2185b', fontWeight: '700', textShadow: '2px 2px 4px rgba(0,0,0,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', flexWrap: 'wrap' }}>
+          <img src="/logo.jpeg" alt="FluffyFlavours" style={{ width: 'clamp(50px, 15vw, 80px)', height: 'clamp(50px, 15vw, 80px)', borderRadius: '50%', objectFit: 'cover' }} />
           FluffyFlavours
         </h1>
-        <p style={{ color: '#880e4f', fontSize: '16px', margin: 0 }}>Track your daily orders with ease</p>
+        <p style={{ color: '#880e4f', fontSize: 'clamp(14px, 3vw, 16px)', margin: 0 }}>Track your daily orders with ease</p>
       </div>
 
-      <div style={{ display: 'flex', gap: '8px', marginBottom: '24px' }}>
+      <div style={{ display: 'flex', gap: '8px', marginBottom: '24px', flexWrap: 'wrap' }}>
         <button 
           type="button"
           onClick={() => setActiveTab('orders')}
-          style={{ flex: 1, padding: '12px', background: activeTab === 'orders' ? 'linear-gradient(135deg, #f48fb1 0%, #ec407a 100%)' : 'white', color: activeTab === 'orders' ? 'white' : '#c2185b', border: '2px solid #f8bbd0', borderRadius: '8px', cursor: 'pointer', fontSize: '15px', fontWeight: '600' }}
+          style={{ flex: '1 1 auto', minWidth: '100px', padding: '12px', background: activeTab === 'orders' ? 'linear-gradient(135deg, #f48fb1 0%, #ec407a 100%)' : 'white', color: activeTab === 'orders' ? 'white' : '#c2185b', border: '2px solid #f8bbd0', borderRadius: '8px', cursor: 'pointer', fontSize: '15px', fontWeight: '600' }}
         >
           Orders
         </button>
         <button 
           type="button"
           onClick={() => setActiveTab('inventory')}
-          style={{ flex: 1, padding: '12px', background: activeTab === 'inventory' ? 'linear-gradient(135deg, #f48fb1 0%, #ec407a 100%)' : 'white', color: activeTab === 'inventory' ? 'white' : '#c2185b', border: '2px solid #f8bbd0', borderRadius: '8px', cursor: 'pointer', fontSize: '15px', fontWeight: '600' }}
+          style={{ flex: '1 1 auto', minWidth: '100px', padding: '12px', background: activeTab === 'inventory' ? 'linear-gradient(135deg, #f48fb1 0%, #ec407a 100%)' : 'white', color: activeTab === 'inventory' ? 'white' : '#c2185b', border: '2px solid #f8bbd0', borderRadius: '8px', cursor: 'pointer', fontSize: '15px', fontWeight: '600' }}
         >
           Inventory
         </button>
         <button 
           type="button"
           onClick={() => setActiveTab('stats')}
-          style={{ flex: 1, padding: '12px', background: activeTab === 'stats' ? 'linear-gradient(135deg, #f48fb1 0%, #ec407a 100%)' : 'white', color: activeTab === 'stats' ? 'white' : '#c2185b', border: '2px solid #f8bbd0', borderRadius: '8px', cursor: 'pointer', fontSize: '15px', fontWeight: '600' }}
+          style={{ flex: '1 1 auto', minWidth: '100px', padding: '12px', background: activeTab === 'stats' ? 'linear-gradient(135deg, #f48fb1 0%, #ec407a 100%)' : 'white', color: activeTab === 'stats' ? 'white' : '#c2185b', border: '2px solid #f8bbd0', borderRadius: '8px', cursor: 'pointer', fontSize: '15px', fontWeight: '600' }}
         >
           Stats
         </button>
       </div>
 
       {activeTab === 'orders' ? (
-      <form onSubmit={handleSubmit} style={{ background: 'white', padding: '32px', borderRadius: '16px', boxShadow: '0 8px 32px rgba(0,0,0,0.12)' }}>
+      <form onSubmit={handleSubmit} style={{ background: 'white', padding: 'clamp(16px, 4vw, 32px)', borderRadius: '16px', boxShadow: '0 8px 32px rgba(0,0,0,0.12)' }}>
         <div style={{ marginBottom: '24px' }}>
           <label style={labelStyle}>Customer Name</label>
           <input 
@@ -199,7 +199,7 @@ export default function Home() {
                 ))}
               </select>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: '12px', marginBottom: '12px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))', gap: '12px', marginBottom: '12px' }}>
               <div>
                 <label style={labelStyle}>Quantity</label>
                 <input 
@@ -272,7 +272,7 @@ export default function Home() {
         </div>
       </form>
       ) : activeTab === 'inventory' ? (
-      <div style={{ background: 'white', padding: '32px', borderRadius: '16px', boxShadow: '0 8px 32px rgba(0,0,0,0.12)' }}>
+      <div style={{ background: 'white', padding: 'clamp(16px, 4vw, 32px)', borderRadius: '16px', boxShadow: '0 8px 32px rgba(0,0,0,0.12)' }}>
         <h3 style={{ color: '#c2185b', marginBottom: '24px', fontSize: '20px' }}>Add New Product</h3>
         <form onSubmit={saveNewProduct}>
           <div style={{ marginBottom: '16px' }}>
@@ -286,7 +286,7 @@ export default function Home() {
               placeholder="e.g., Chocolate Cake"
             />
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '16px', marginBottom: '24px' }}>
             <div>
               <label style={labelStyle}>Cost Price</label>
               <input 
@@ -328,7 +328,7 @@ export default function Home() {
         </div>
       </div>
       ) : activeTab === 'stats' ? (
-      <div style={{ background: 'white', padding: '32px', borderRadius: '16px', boxShadow: '0 8px 32px rgba(0,0,0,0.12)' }}>
+      <div style={{ background: 'white', padding: 'clamp(16px, 4vw, 32px)', borderRadius: '16px', boxShadow: '0 8px 32px rgba(0,0,0,0.12)' }}>
         <h3 style={{ color: '#c2185b', marginBottom: '24px', fontSize: '24px', textAlign: 'center' }}>📊 Business Insights</h3>
         
         {stats ? (
